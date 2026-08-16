@@ -1,0 +1,117 @@
+@if (visible()) {
+  <div
+    class="fixed inset-x-0 bottom-0 z-[60] bg-surface/95 backdrop-blur-sm border-t border-outline-variant shadow-[0_-4px_20px_rgba(0,0,0,0.12)]"
+    role="region"
+    aria-label="Cookie consent"
+  >
+    <div class="max-w-content mx-auto px-margin-mobile md:px-margin-desktop py-6">
+      <div class="flex flex-col lg:flex-row lg:items-center gap-6">
+        <div class="flex gap-4 flex-1">
+          <span class="material-symbols-outlined text-primary text-3xl shrink-0" aria-hidden="true">cookie</span>
+          <div>
+            <h2 class="font-headline-md text-headline-md text-primary mb-2">We value your privacy</h2>
+            <p class="font-body-md text-on-surface-variant leading-relaxed max-w-2xl">
+              We use cookies to run essential site features, understand how visitors use our site, and improve our
+              content. Choose to accept all, reject non-essential cookies, or manage your preferences.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-3 shrink-0">
+          <button
+            type="button"
+            (click)="toggleDetails()"
+            class="border border-outline text-on-surface-variant px-6 py-2.5 rounded-lg font-label-md text-label-md uppercase tracking-wider hover:border-primary hover:text-primary transition-all duration-300"
+            [attr.aria-expanded]="showDetails()"
+            aria-controls="cookie-preferences-panel"
+          >
+            {{ showDetails() ? 'Hide options' : 'Manage preferences' }}
+          </button>
+          <button
+            type="button"
+            (click)="rejectAll()"
+            class="border border-outline text-on-surface-variant px-6 py-2.5 rounded-lg font-label-md text-label-md uppercase tracking-wider hover:border-primary hover:text-primary transition-all duration-300"
+          >
+            Reject all
+          </button>
+          <button
+            type="button"
+            (click)="acceptAll()"
+            class="bg-primary text-on-primary px-6 py-2.5 rounded-lg font-label-md text-label-md uppercase tracking-wider hover:bg-primary-container hover:-translate-y-0.5 hover:shadow-[0_4px_14px_0_rgba(85,27,28,0.39)] transition-all duration-300"
+          >
+            Accept all
+          </button>
+        </div>
+      </div>
+
+      @if (showDetails()) {
+        <div
+          id="cookie-preferences-panel"
+          class="mt-6 pt-6 border-t border-surface-variant grid grid-cols-1 sm:grid-cols-3 gap-gutter"
+        >
+          <div class="bg-surface-container-low border border-surface-variant rounded-lg p-5">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="font-label-md text-label-md text-on-surface">Necessary</h3>
+              <span class="font-caption text-caption text-on-surface-variant uppercase tracking-wide">Always on</span>
+            </div>
+            <p class="font-caption text-caption text-on-surface-variant leading-relaxed">
+              Required for core site functionality such as navigation and security. These cannot be disabled.
+            </p>
+          </div>
+
+          <div class="bg-surface-container-low border border-surface-variant rounded-lg p-5">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="font-label-md text-label-md text-on-surface">Analytics</h3>
+              <label class="relative inline-flex items-center cursor-pointer">
+                <input
+                  type="checkbox"
+                  class="sr-only peer"
+                  [checked]="analyticsEnabled()"
+                  (change)="toggleAnalytics()"
+                  aria-label="Enable analytics cookies"
+                />
+                <span
+                  class="w-10 h-6 bg-surface-variant rounded-full peer-checked:bg-primary transition-colors duration-300 relative after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:w-5 after:h-5 after:bg-surface-container-lowest after:rounded-full after:transition-transform after:duration-300 peer-checked:after:translate-x-4"
+                ></span>
+              </label>
+            </div>
+            <p class="font-caption text-caption text-on-surface-variant leading-relaxed">
+              Helps us understand how visitors interact with our site so we can improve it.
+            </p>
+          </div>
+
+          <div class="bg-surface-container-low border border-surface-variant rounded-lg p-5">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="font-label-md text-label-md text-on-surface">Marketing</h3>
+              <label class="relative inline-flex items-center cursor-pointer">
+                <input
+                  type="checkbox"
+                  class="sr-only peer"
+                  [checked]="marketingEnabled()"
+                  (change)="toggleMarketing()"
+                  aria-label="Enable marketing cookies"
+                />
+                <span
+                  class="w-10 h-6 bg-surface-variant rounded-full peer-checked:bg-primary transition-colors duration-300 relative after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:w-5 after:h-5 after:bg-surface-container-lowest after:rounded-full after:transition-transform after:duration-300 peer-checked:after:translate-x-4"
+                ></span>
+              </label>
+            </div>
+            <p class="font-caption text-caption text-on-surface-variant leading-relaxed">
+              Used to deliver relevant offers and measure the effectiveness of our campaigns.
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-6 flex justify-end">
+          <button
+            type="button"
+            (click)="savePreferences()"
+            class="bg-primary text-on-primary px-8 py-2.5 rounded-lg font-label-md text-label-md uppercase tracking-wider hover:bg-primary-container hover:-translate-y-0.5 hover:shadow-[0_4px_14px_0_rgba(85,27,28,0.39)] transition-all duration-300"
+          >
+            Save preferences
+          </button>
+        </div>
+      }
+    </div>
+  </div>
+}

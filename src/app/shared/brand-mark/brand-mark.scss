@@ -1,0 +1,14 @@
+:host {
+  display: inline-flex;
+  color: #551b1c;
+}
+
+:host.brand-mark--inverse {
+  color: #ffffff;
+}
+
+svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}

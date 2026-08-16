@@ -1,0 +1,118 @@
+<!-- Hero -->
+<section class="relative overflow-hidden pt-20 pb-24 md:pt-28 md:pb-40">
+  <div class="absolute inset-0 z-0 bg-gradient-to-br from-on-primary-fixed to-primary">
+    <div class="absolute inset-0 bg-black/50 z-10"></div>
+    <img ngSrc="{{ heroImage }}" alt="Corrugated boxes and packaging materials" fill priority sizes="100vw" class="object-cover" />
+  </div>
+  <div class="relative z-20 max-w-content mx-auto px-margin-mobile md:px-margin-desktop">
+    <div class="max-w-2xl">
+      <span class="font-label-md text-label-md border-l-2 border-primary-fixed-dim pl-4 mb-6 block uppercase tracking-[0.2em] text-on-primary">
+        Packaging
+      </span>
+      <h1 class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg mb-8 leading-tight text-on-primary">
+        Packaging <br />
+        <span class="italic">Solutions.</span>
+      </h1>
+      <p class="font-body-lg text-body-lg mb-10 max-w-lg text-surface-variant">
+        We provide a range of packaging solutions designed to meet diverse requirements across industries and
+        applications. Our packaging portfolio includes labels, corrugated boxes, laminates, pouches, and paper bags.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Offerings -->
+@for (offering of offerings; track offering.title; let i = $index) {
+  <section class="py-24" [class.bg-surface-dim]="i % 2 === 0" [class.bg-surface]="i % 2 !== 0">
+    <div class="max-w-content mx-auto px-margin-mobile md:px-margin-desktop">
+      <div class="flex flex-col md:flex-row gap-12 items-center">
+        <div
+          class="w-full md:w-1/2"
+          [class.order-2]="i % 2 === 0"
+          [class.md:order-1]="i % 2 === 0"
+          [class.order-1]="i % 2 !== 0"
+          [class.md:order-2]="i % 2 !== 0"
+          appRevealOnScroll
+        >
+          <h3 class="font-headline-lg text-headline-lg text-primary mb-6">{{ offering.title }}</h3>
+          <p class="font-body-md text-on-surface-variant mb-6">{{ offering.description }}</p>
+          <div
+            class="p-6 rounded-lg border-l-4 border-primary-container"
+            [class.bg-surface]="i % 2 === 0"
+            [class.bg-surface-dim]="i % 2 !== 0"
+          >
+            <strong class="font-label-md text-label-md text-primary-container uppercase tracking-wider block mb-2">
+              Applications
+            </strong>
+            <p class="text-on-surface-variant">{{ offering.applications }}</p>
+          </div>
+        </div>
+        <div
+          class="w-full md:w-1/2"
+          [class.order-1]="i % 2 === 0"
+          [class.md:order-2]="i % 2 === 0"
+          [class.order-2]="i % 2 !== 0"
+          [class.md:order-1]="i % 2 !== 0"
+          appRevealOnScroll
+        >
+          <div class="relative h-64 sm:h-80 md:h-[400px] w-full rounded-xl overflow-hidden shadow-xl border border-outline-variant/30">
+            <img ngSrc="{{ offering.image }}" [alt]="offering.title" fill sizes="(min-width: 768px) 50vw, 100vw" class="object-cover" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+}
+
+<!-- Technology -->
+<section class="py-24 bg-surface-container-low border-y border-outline-variant">
+  <div class="max-w-content mx-auto px-margin-mobile md:px-margin-desktop">
+    <div class="mb-16 text-center max-w-3xl mx-auto fade-in-section" appRevealOnScroll>
+      <span class="text-primary font-label-md text-label-md tracking-widest block mb-4 uppercase">Advanced Infrastructure</span>
+      <h2 class="font-headline-lg text-headline-lg text-primary mb-6">State-of-the-Art Packaging Technology</h2>
+      <p class="text-on-surface-variant font-body-lg text-body-lg">
+        Our manufacturing facility is equipped with industry-leading machinery to ensure unparalleled precision and
+        scale for all packaging requirements.
+      </p>
+    </div>
+    <div class="space-y-24">
+      @for (machine of machines; track machine.title; let i = $index) {
+        <div
+          class="flex flex-col gap-12 items-center slide-up-card"
+          [class.md:flex-row]="i % 2 === 0"
+          [class.md:flex-row-reverse]="i % 2 !== 0"
+          appRevealOnScroll
+        >
+          <div class="w-full md:w-1/2 rounded-xl overflow-hidden shadow-lg bg-surface-container-lowest relative aspect-[4/3]">
+            <img
+              ngSrc="{{ machine.image }}"
+              [alt]="machine.title"
+              fill
+              sizes="(min-width: 768px) 50vw, 100vw"
+              class="object-cover"
+            />
+          </div>
+          <div class="w-full md:w-1/2">
+            <h3 class="font-headline-lg text-headline-md text-primary mb-4">{{ machine.title }}</h3>
+            <div class="mb-6">
+              <h4 class="font-label-md text-label-md uppercase text-on-surface-variant mb-2">Used for:</h4>
+              <ul class="list-disc pl-5 font-body-md text-on-surface-variant space-y-1">
+                @for (item of machine.usedFor; track item) {
+                  <li>{{ item }}</li>
+                }
+              </ul>
+            </div>
+            <div>
+              <h4 class="font-label-md text-label-md uppercase text-on-surface-variant mb-2">Key capabilities:</h4>
+              <ul class="list-disc pl-5 font-body-md text-on-surface-variant space-y-1">
+                @for (item of machine.capabilities; track item) {
+                  <li>{{ item }}</li>
+                }
+              </ul>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

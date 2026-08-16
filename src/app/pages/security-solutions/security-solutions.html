@@ -1,0 +1,176 @@
+<!-- Hero -->
+<section class="relative min-h-[70vh] md:min-h-[80vh] flex items-center overflow-hidden bg-surface-container-lowest">
+  <div class="absolute inset-0 z-0">
+    <img ngSrc="{{ heroImage }}" alt="Security printing detail" fill priority sizes="100vw" class="object-cover opacity-20 md:opacity-40" />
+    <div class="absolute inset-0 bg-gradient-to-r from-surface via-surface/80 to-transparent"></div>
+  </div>
+  <div class="relative z-10 max-w-content mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 lg:grid-cols-12 gap-gutter py-16">
+    <div class="lg:col-span-8 flex flex-col justify-center">
+      <span class="font-label-md text-label-md text-primary mb-4 tracking-widest uppercase">| Security solutions</span>
+      <h1 class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg mb-6 text-on-primary-fixed leading-tight">
+        Security Printing &amp; Document Solutions
+      </h1>
+      <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mb-10 leading-relaxed">
+        Documents such as certificates, identification cards, cheques, and academic credentials require a higher
+        level of trust and protection. Our security printing solutions are designed for applications where
+        authenticity, document integrity, controlled reproduction, and visual security are important.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Precision engineering banner -->
+<section class="py-16 bg-on-primary-fixed text-surface-container-lowest overflow-hidden">
+  <div class="max-w-content mx-auto px-margin-mobile md:px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-12">
+    <div class="flex-1">
+      <h2 class="font-headline-lg text-headline-lg mb-4 italic">Mechanical Precision in Every Micron.</h2>
+      <p class="opacity-80 font-body-md max-w-md">
+        Our high-security facility utilizes state-of-the-art German engineering to deliver unforgeable security
+        elements for global institutions.
+      </p>
+    </div>
+    <div class="grid grid-cols-2 gap-8 text-center border-l border-white/20 pl-0 md:pl-12">
+      <div>
+        <div class="text-headline-lg font-bold"><span [appCountUp]="30">0</span></div>
+        <div class="font-caption text-[10px] opacity-60">Years Excellence</div>
+      </div>
+      <div>
+        <div class="text-headline-lg font-bold"><span [appCountUp]="100">0</span>%</div>
+        <div class="font-caption text-[10px] opacity-60">Secure Facility</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Core security items -->
+<section class="py-24 md:py-32 bg-surface-container-lowest">
+  <div class="max-w-content mx-auto px-margin-mobile md:px-margin-desktop">
+    <div class="mb-16 fade-in-section" appRevealOnScroll>
+      <span class="font-label-md text-label-md text-primary tracking-widest uppercase">Security Portfolio</span>
+      <h2 class="font-headline-lg text-headline-lg mt-2 text-on-surface">Our Security Solutions</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+      <!-- Certificates & Degrees -->
+      <div class="md:col-span-8 group border border-surface-variant p-8 bg-surface transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-xl rounded-lg slide-up-card stagger-1" appRevealOnScroll>
+        <div class="flex flex-col gap-8">
+          <div class="w-full aspect-[3/4] md:aspect-video relative overflow-hidden rounded-md bg-surface-container">
+            <img ngSrc="{{ certificateImage }}" alt="Security certificate example" fill sizes="(min-width: 768px) 66vw, 100vw" class="object-contain group-hover:scale-105 transition-transform duration-700" />
+          </div>
+          <div>
+            <span class="material-symbols-outlined text-primary text-4xl mb-4 block" aria-hidden="true">workspace_premium</span>
+            <h3 class="font-headline-md text-headline-md mb-4">Certificates &amp; Degree</h3>
+            <p class="text-on-surface-variant font-body-md">
+              We provide high-quality certificate printing for educational institutions, organizations, businesses,
+              and other official applications. Certificates can be customized according to institutional branding,
+              format, and security requirements.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Holograms -->
+      <div class="md:col-span-4 group border border-surface-variant p-8 bg-surface transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-xl rounded-lg slide-up-card stagger-2" appRevealOnScroll>
+        <span class="material-symbols-outlined text-primary text-4xl mb-4 block" aria-hidden="true">qr_code_2</span>
+        <h3 class="font-headline-md text-headline-md mb-4">Holograms</h3>
+        <p class="text-on-surface-variant font-body-md mb-6">
+          Holographic security solutions provide an additional visual layer of authentication and can help protect
+          documents and products against unauthorized reproduction.
+        </p>
+        <div class="w-full aspect-square bg-surface-container rounded-md overflow-hidden relative">
+          <img ngSrc="{{ hologramImage }}" alt="Holographic seal reflecting colors" fill sizes="(min-width: 768px) 33vw, 100vw" class="object-cover group-hover:scale-105 transition-transform duration-700" />
+        </div>
+      </div>
+
+      <!-- ID Cards -->
+      <div class="md:col-span-4 group border border-surface-variant p-8 bg-surface transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-xl rounded-lg slide-up-card stagger-3" appRevealOnScroll>
+        <div class="w-full aspect-video bg-surface-container rounded-md mb-4 overflow-hidden relative">
+          <img ngSrc="{{ idCardImage }}" alt="ID cards" fill sizes="(min-width: 768px) 33vw, 100vw" class="object-cover group-hover:scale-105 transition-transform duration-700" />
+        </div>
+        <h3 class="font-headline-md text-headline-md mb-4">ID Cards</h3>
+        <p class="text-on-surface-variant font-body-md">
+          We provide professionally printed ID cards for organizations, institutions, and businesses. Solutions can
+          be customized according to organizational requirements, including identity information, branding, and
+          security elements.
+        </p>
+        <div class="mt-8 border-t border-surface-variant pt-6 flex justify-between items-center text-primary font-label-md text-label-md">
+          <span>Custom Solutions</span>
+          <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" aria-hidden="true">arrow_forward</span>
+        </div>
+      </div>
+
+      <!-- Cheques -->
+      <div class="md:col-span-8 group border border-surface-variant p-8 bg-surface transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-xl rounded-lg slide-up-card stagger-4" appRevealOnScroll>
+        <div class="flex flex-col md:flex-row-reverse gap-8 items-center">
+          <div class="flex-1">
+            <span class="material-symbols-outlined text-primary text-4xl mb-4 block" aria-hidden="true">payments</span>
+            <h3 class="font-headline-md text-headline-md mb-4">Cheques</h3>
+            <p class="text-on-surface-variant font-body-md">
+              Secure cheque printing combines professional print quality with security-focused features designed to
+              help protect financial documents against unauthorized alteration, duplication, and misuse.
+            </p>
+          </div>
+          <div class="w-full md:w-2/5 aspect-square overflow-hidden rounded-md relative">
+            <img ngSrc="{{ chequesImage }}" alt="Security printed bank cheques" fill sizes="(min-width: 768px) 33vw, 100vw" class="object-cover group-hover:scale-105 transition-transform duration-700" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Letterheads -->
+      <div class="md:col-span-6 group border border-surface-variant p-8 bg-surface transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-xl rounded-lg slide-up-card stagger-1" appRevealOnScroll>
+        <div class="w-full aspect-video bg-surface-container rounded-md mb-4 overflow-hidden relative">
+          <img ngSrc="{{ letterheadImage }}" alt="Letterheads" fill sizes="(min-width: 768px) 50vw, 100vw" class="object-cover group-hover:scale-105 transition-transform duration-700" />
+        </div>
+        <h3 class="font-headline-md text-headline-md mb-4">Letterheads</h3>
+        <p class="text-on-surface-variant font-body-md">
+          Professionally printed letterheads provide an authenticated and consistent format for official
+          organizational communication. We offer customized letterhead printing for businesses, institutions,
+          government organizations, and other professional bodies.
+        </p>
+      </div>
+
+      <!-- Stickers -->
+      <div class="md:col-span-6 group border border-surface-variant p-8 bg-surface transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-xl rounded-lg slide-up-card stagger-2" appRevealOnScroll>
+        <div class="w-full aspect-video bg-surface-container rounded-md mb-4 overflow-hidden relative">
+          <img ngSrc="{{ stickerImage }}" alt="Tamper-evident security sticker with VOID pattern" fill sizes="(min-width: 768px) 50vw, 100vw" class="object-cover group-hover:scale-105 transition-transform duration-700" />
+        </div>
+        <h3 class="font-headline-md text-headline-md mb-4">Stickers</h3>
+        <p class="text-on-surface-variant font-body-md">
+          High-security tamper-evident stickers designed to reveal a permanent 'VOID' pattern when removed. These
+          seals provide an immediate visual indication of unauthorized access.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Value proposition -->
+<section class="py-24 md:py-32 bg-surface-container-lowest scale-up-section" appRevealOnScroll>
+  <div class="max-w-content mx-auto px-margin-mobile md:px-margin-desktop text-center">
+    <blockquote class="mb-12">
+      <p class="font-headline-lg text-headline-lg italic text-primary leading-relaxed max-w-4xl mx-auto">
+        "Security is not a feature, it's a foundation. At Royal Traders, we weave protection into the very fiber of
+        every product we print."
+      </p>
+      <cite class="block mt-8 font-label-md text-label-md text-on-surface-variant tracking-widest not-italic">
+        — THE ROYAL TRADERS PROMISE
+      </cite>
+    </blockquote>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter mt-24">
+      @for (item of valueProps; track item.title; let i = $index) {
+        <div
+          class="p-8 slide-up-card"
+          [class.stagger-1]="i === 0"
+          [class.stagger-2]="i === 1"
+          [class.stagger-3]="i === 2"
+          appRevealOnScroll
+        >
+          <div class="w-16 h-16 bg-primary text-on-primary flex items-center justify-center rounded-full mx-auto mb-6">
+            <span class="material-symbols-outlined text-3xl" aria-hidden="true">{{ item.icon }}</span>
+          </div>
+          <h4 class="font-headline-md text-headline-md mb-2">{{ item.title }}</h4>
+          <p class="text-on-surface-variant">{{ item.description }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>

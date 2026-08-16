@@ -1,0 +1,21 @@
+<ul class="sr-only">
+  @for (item of items(); track item.alt) {
+    <li>{{ item.alt }}</li>
+  }
+</ul>
+<div class="relative w-full overflow-hidden marquee-container" aria-hidden="true">
+  <div class="absolute left-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-r from-surface to-transparent z-10 pointer-events-none"></div>
+  <div class="absolute right-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-l from-surface to-transparent z-10 pointer-events-none"></div>
+  <div class="marquee-content animate-marquee gap-16 md:gap-32 items-center px-16 w-max">
+    @for (item of items(); track $index) {
+      <div class="relative h-10 w-28 md:h-14 md:w-36 shrink-0">
+        <img [ngSrc]="item.src" [alt]="item.alt" fill class="object-contain" />
+      </div>
+    }
+    @for (item of items(); track $index) {
+      <div class="relative h-10 w-28 md:h-14 md:w-36 shrink-0">
+        <img [ngSrc]="item.src" [alt]="item.alt" fill class="object-contain" />
+      </div>
+    }
+  </div>
+</div>

@@ -1,0 +1,146 @@
+<!-- Hero -->
+<section class="relative h-[60vh] min-h-[400px] flex items-center overflow-hidden bg-gradient-to-br from-on-primary-fixed to-primary">
+  <img
+    ngSrc="{{ heroImage }}"
+    alt="Royal Traders industrial printing facility"
+    fill
+    priority
+    sizes="100vw"
+    class="object-cover grayscale-[30%] opacity-90"
+  />
+  <div class="absolute inset-0 bg-gradient-to-r from-primary/80 to-transparent"></div>
+  <div class="relative z-10 max-w-content mx-auto px-margin-mobile md:px-margin-desktop w-full">
+    <div class="max-w-2xl">
+      <span class="font-label-md text-label-md uppercase text-on-primary-container bg-primary-fixed/20 px-3 py-1 rounded mb-6 inline-block">
+        | Printing Services
+      </span>
+      <h1 class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-white mb-6">
+        Comprehensive Printing Solutions
+      </h1>
+      <p class="text-white/90 font-body-lg text-body-lg max-w-lg">
+        Royal Traders offers a diverse and comprehensive suite of printing services, catering to a wide array of
+        commercial, corporate, and institutional needs. Our commitment to quality, precision, and timely delivery
+        has made us a trusted partner for organizations seeking impactful and professional printed materials.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Services -->
+<section class="py-24 bg-surface">
+  <div class="max-w-content mx-auto px-margin-mobile md:px-margin-desktop">
+    <div class="mb-16 text-center max-w-3xl mx-auto fade-in-section" appRevealOnScroll>
+      <span class="text-primary font-label-md text-label-md tracking-widest block mb-4 uppercase">Our Capabilities</span>
+      <h2 class="font-headline-lg text-headline-lg text-primary mb-6">A Full Spectrum of Print Services</h2>
+      <p class="text-on-surface-variant font-body-lg text-body-lg">
+        From essential corporate stationery to complex institutional publications, we deliver excellence across all
+        formats.
+      </p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+      @for (service of services; track service.title; let i = $index) {
+        <div
+          class="p-8 bg-surface-container-lowest border border-outline-variant hover:border-primary transition-colors duration-300 rounded-lg slide-up-card"
+          [class.stagger-1]="i % 3 === 0"
+          [class.stagger-2]="i % 3 === 1"
+          [class.stagger-3]="i % 3 === 2"
+          appRevealOnScroll
+        >
+          <div class="mb-6 text-primary">
+            <span class="material-symbols-outlined text-4xl" aria-hidden="true">{{ service.icon }}</span>
+          </div>
+          <h3 class="font-headline-md text-headline-md text-primary mb-4">{{ service.title }}</h3>
+          @if (service.items) {
+            <ul class="space-y-3 font-body-md text-on-surface-variant">
+              @for (item of service.items; track item) {
+                <li class="flex items-start gap-2">
+                  <span class="material-symbols-outlined text-primary text-sm mt-1" aria-hidden="true">check_circle</span>
+                  {{ item }}
+                </li>
+              }
+            </ul>
+          } @else {
+            <p class="text-on-surface-variant font-body-md">{{ service.description }}</p>
+          }
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Technology -->
+<section class="py-24 bg-surface-container-low border-y border-outline-variant">
+  <div class="max-w-content mx-auto px-margin-mobile md:px-margin-desktop">
+    <div class="mb-16 text-center max-w-3xl mx-auto fade-in-section" appRevealOnScroll>
+      <span class="text-primary font-label-md text-label-md tracking-widest block mb-4 uppercase">Advanced Infrastructure</span>
+      <h2 class="font-headline-lg text-headline-lg text-primary mb-6">State-of-the-Art Printing Technology</h2>
+      <p class="text-on-surface-variant font-body-lg text-body-lg">
+        Our manufacturing facility is equipped with industry-leading machinery to ensure unparalleled precision and
+        scale.
+      </p>
+    </div>
+    <div class="space-y-24">
+      @for (machine of machines; track machine.title; let i = $index) {
+        <div
+          class="flex flex-col gap-12 items-center slide-up-card"
+          [class.lg:flex-row]="i % 2 === 0"
+          [class.lg:flex-row-reverse]="i % 2 !== 0"
+          appRevealOnScroll
+        >
+          <div class="w-full lg:w-1/2 rounded-xl overflow-hidden shadow-lg bg-surface-container-lowest relative aspect-[4/3]">
+            <img
+              ngSrc="{{ machine.image }}"
+              [alt]="machine.title"
+              fill
+              sizes="(min-width: 1024px) 50vw, 100vw"
+              class="object-cover"
+            />
+          </div>
+          <div class="w-full lg:w-1/2">
+            <h3 class="font-headline-lg text-headline-md text-primary mb-4">{{ machine.title }}</h3>
+            <div class="mb-6">
+              <h4 class="font-label-md text-label-md uppercase text-on-surface-variant mb-2">Used for:</h4>
+              <ul class="list-disc pl-5 font-body-md text-on-surface-variant space-y-1">
+                @for (item of machine.usedFor; track item) {
+                  <li>{{ item }}</li>
+                }
+              </ul>
+            </div>
+            <div>
+              <h4 class="font-label-md text-label-md uppercase text-on-surface-variant mb-2">Key capabilities:</h4>
+              <ul class="list-disc pl-5 font-body-md text-on-surface-variant space-y-1">
+                @for (item of machine.capabilities; track item) {
+                  <li>{{ item }}</li>
+                }
+              </ul>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Integrated manufacturing -->
+<section class="py-24 bg-primary text-white relative overflow-hidden">
+  <div class="max-w-content mx-auto px-margin-mobile md:px-margin-desktop relative z-10">
+    <div class="max-w-4xl mx-auto text-center fade-in-section" appRevealOnScroll>
+      <span class="font-label-md text-label-md uppercase tracking-widest text-primary-fixed-dim block mb-4">
+        End-to-End Solutions
+      </span>
+      <h2 class="font-headline-lg text-headline-lg mb-8">
+        Integrated Manufacturing Capability: From Printing to Finished Packaging
+      </h2>
+      <p class="text-primary-fixed font-body-lg text-body-lg mb-8">
+        At Royal Traders, our operations go beyond mere printing. We offer a fully integrated manufacturing
+        capability that seamlessly bridges the gap between raw design and the final, shelf-ready product. Our
+        comprehensive ecosystem encompasses pre-press planning, high-fidelity printing, advanced lamination, and
+        precision pouching or cutting.
+      </p>
+      <p class="text-primary-fixed font-body-lg text-body-lg">
+        This end-to-end control ensures strict quality assurance at every stage, reduces lead times, and provides
+        our clients with a single, reliable partner for their entire packaging and printing lifecycle.
+      </p>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,171 @@
+<div class="max-w-content mx-auto px-margin-mobile md:px-margin-desktop py-lg">
+  <!-- Header -->
+  <div class="mb-lg flex flex-col md:flex-row md:items-end justify-between gap-gutter">
+    <h1 class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-primary uppercase">
+      Talk To Us
+    </h1>
+    <p class="font-body-md text-body-md text-on-surface-variant md:max-w-md">
+      If you have any questions, please feel free to get in touch with us via phone, email, the form below, or even
+      on social media!
+    </p>
+  </div>
+
+  <!-- Two column grid -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter mb-lg">
+    <!-- Form -->
+    <div class="bg-surface-container-lowest border border-tertiary-fixed-dim p-md">
+      <h2 class="font-headline-md text-headline-md font-bold mb-md">Get in touch</h2>
+
+      @if (submitState() === 'success') {
+        <div class="bg-surface-container-low border-l-4 border-primary-container p-6 mb-6" role="status">
+          <p class="font-body-md text-on-surface">
+            Thank you — your message has been sent. Our team will get back to you shortly.
+          </p>
+        </div>
+      }
+
+      <form class="space-y-md" [formGroup]="form" (ngSubmit)="submit()" novalidate>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+          <div class="flex flex-col">
+            <label class="font-label-md text-label-md uppercase mb-xs text-on-surface" for="name">Name</label>
+            <input
+              class="border border-on-surface bg-surface-container-lowest p-sm focus:outline-none focus:ring-2 focus:ring-primary-container focus:border-transparent font-body-md"
+              id="name"
+              formControlName="name"
+              placeholder="Enter your name*"
+              type="text"
+              [attr.aria-invalid]="form.controls.name.invalid && form.controls.name.touched"
+              aria-describedby="name-error"
+            />
+            @if (form.controls.name.invalid && form.controls.name.touched) {
+              <span id="name-error" class="text-error text-caption font-caption mt-1">Please enter your name.</span>
+            }
+          </div>
+          <div class="flex flex-col">
+            <label class="font-label-md text-label-md uppercase mb-xs text-on-surface" for="phone">Phone Number</label>
+            <input
+              class="border border-on-surface bg-surface-container-lowest p-sm focus:outline-none focus:ring-2 focus:ring-primary-container focus:border-transparent font-body-md"
+              id="phone"
+              formControlName="phone"
+              placeholder="Enter your phone number*"
+              type="tel"
+              [attr.aria-invalid]="form.controls.phone.invalid && form.controls.phone.touched"
+              aria-describedby="phone-error"
+            />
+            @if (form.controls.phone.invalid && form.controls.phone.touched) {
+              <span id="phone-error" class="text-error text-caption font-caption mt-1">Please enter a valid phone number.</span>
+            }
+          </div>
+        </div>
+        <div class="flex flex-col">
+          <label class="font-label-md text-label-md uppercase mb-xs text-on-surface" for="email">Email</label>
+          <input
+            class="border border-on-surface bg-surface-container-lowest p-sm focus:outline-none focus:ring-2 focus:ring-primary-container focus:border-transparent font-body-md"
+            id="email"
+            formControlName="email"
+            placeholder="Enter your email*"
+            type="email"
+            [attr.aria-invalid]="form.controls.email.invalid && form.controls.email.touched"
+            aria-describedby="email-error"
+          />
+          @if (form.controls.email.invalid && form.controls.email.touched) {
+            <span id="email-error" class="text-error text-caption font-caption mt-1">Please enter a valid email address.</span>
+          }
+        </div>
+        <div class="flex flex-col">
+          <label class="font-label-md text-label-md uppercase mb-xs text-on-surface" for="message">Your Message</label>
+          <textarea
+            class="border border-on-surface bg-surface-container-lowest p-sm focus:outline-none focus:ring-2 focus:ring-primary-container focus:border-transparent font-body-md"
+            id="message"
+            formControlName="message"
+            rows="4"
+          ></textarea>
+        </div>
+        <button
+          class="w-full md:w-auto px-lg py-sm border-2 border-primary-container bg-primary-container text-on-primary font-label-md text-label-md uppercase tracking-wider hover:shadow-[4px_4px_0px_rgba(44,44,44,0.2)] transition-shadow disabled:opacity-60 disabled:cursor-not-allowed rounded-lg"
+          type="submit"
+          [disabled]="submitState() === 'submitting'"
+        >
+          {{ submitState() === 'submitting' ? 'Sending…' : 'Send Message' }}
+        </button>
+      </form>
+    </div>
+
+    <!-- Info & hours -->
+    <div class="flex flex-col gap-gutter">
+      <div class="bg-surface-container-low p-md border border-tertiary-fixed-dim">
+        <h2 class="font-headline-md text-headline-md font-bold mb-md uppercase">Contact Information</h2>
+        <div class="space-y-md">
+          <div class="flex items-start gap-sm">
+            <span class="material-symbols-outlined text-primary-container" aria-hidden="true">call</span>
+            <div>
+              <h3 class="font-label-md text-label-md uppercase text-on-surface">Phone</h3>
+              <p class="font-body-md text-body-md text-on-surface-variant">
+                <a href="tel:+911234567890" class="hover:text-primary transition-colors">+91 123 456 7890</a>
+              </p>
+            </div>
+          </div>
+          <div class="flex items-start gap-sm">
+            <span class="material-symbols-outlined text-primary-container" aria-hidden="true">mail</span>
+            <div>
+              <h3 class="font-label-md text-label-md uppercase text-on-surface">Email</h3>
+              <p class="font-body-md text-body-md text-on-surface-variant">
+                <a href="mailto:info@royaltradersindia.in" class="hover:text-primary transition-colors">info&#64;royaltradersindia.in</a>
+              </p>
+            </div>
+          </div>
+          <div class="flex items-start gap-sm">
+            <span class="material-symbols-outlined text-primary-container" aria-hidden="true">location_on</span>
+            <div>
+              <h3 class="font-label-md text-label-md uppercase text-on-surface">Address</h3>
+              <p class="font-body-md text-body-md text-on-surface-variant">S-7, Rampuri, Ghaziabad,<br />Uttar Pradesh-201011, INDIA</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-lg pt-md border-t border-tertiary-fixed-dim">
+          <h3 class="font-label-md text-label-md uppercase mb-sm text-on-surface">Connect With Us</h3>
+          <div class="flex gap-sm">
+            @for (social of socialLinks; track social.label) {
+              <a
+                class="w-10 h-10 border border-on-surface flex items-center justify-center text-primary-container hover:bg-surface-container-high transition-colors"
+                [href]="social.href"
+                [attr.aria-label]="social.label"
+              >
+                <span class="material-symbols-outlined" aria-hidden="true">{{ social.icon }}</span>
+              </a>
+            }
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-surface-container-low p-md border border-tertiary-fixed-dim">
+        <h2 class="font-headline-md text-headline-md font-bold mb-md uppercase">Business Hours</h2>
+        <div class="grid grid-cols-2 gap-sm">
+          <div>
+            <h3 class="font-label-md text-label-md uppercase text-on-surface">Monday - Friday</h3>
+            <p class="font-body-md text-body-md text-on-surface-variant">9:00 am - 6:00 pm</p>
+          </div>
+          <div>
+            <h3 class="font-label-md text-label-md uppercase text-on-surface">Weekend</h3>
+            <p class="font-body-md text-body-md text-on-surface-variant">Closed</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Map -->
+  <div class="w-full h-[300px] md:h-[400px] border border-tertiary-fixed-dim bg-surface-container-highest relative overflow-hidden">
+    <img
+      ngSrc="{{ mapImage }}"
+      alt="Map showing Royal Traders location in Ghaziabad, Uttar Pradesh"
+      fill
+      sizes="100vw"
+      class="object-cover opacity-50 grayscale"
+    />
+    <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+      <span class="material-symbols-outlined filled text-primary-container text-[48px]" aria-hidden="true">location_on</span>
+    </div>
+  </div>
+</div>

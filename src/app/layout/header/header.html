@@ -1,0 +1,81 @@
+<header
+  class="fixed top-0 left-0 right-0 z-50 bg-surface/95 backdrop-blur-sm border-b border-outline-variant transition-shadow duration-300"
+  [class.shadow-md]="scrolled()"
+>
+  <nav
+    class="max-w-content mx-auto px-margin-mobile md:px-margin-desktop flex justify-between items-center transition-all duration-300"
+    [class.py-2]="scrolled()"
+    [class.py-4]="!scrolled()"
+  >
+    <a routerLink="/" class="flex items-center gap-2 shrink-0" aria-label="Royal Traders home" (click)="closeMenu()">
+      <app-brand-mark class="h-9 w-9 md:h-10 md:w-10" />
+      <!-- <span class="font-headline-md text-headline-md text-primary hidden sm:inline">Royal Traders</span> -->
+    </a>
+
+    <ul class="hidden lg:flex gap-8 items-center font-body-md text-body-md">
+      @for (link of navLinks; track link.path) {
+        <li>
+          <a
+            #rla="routerLinkActive"
+            [routerLink]="link.path"
+            routerLinkActive="text-primary font-semibold"
+            [routerLinkActiveOptions]="{ exact: link.path === '/' }"
+            class="relative inline-block pb-3 text-on-surface-variant hover:text-primary transition-colors"
+          >
+            {{ link.label }}
+            <span
+              class="absolute left-0 right-0 bottom-0 h-1 rounded-full bg-primary transition-opacity duration-200"
+              [class.opacity-100]="rla.isActive"
+              [class.opacity-0]="!rla.isActive"
+              aria-hidden="true"
+            ></span>
+          </a>
+        </li>
+      }
+    </ul>
+
+    <a
+      routerLink="/contact"
+      class="hidden lg:inline-block bg-primary text-on-primary px-6 py-2.5 rounded-lg font-label-md text-label-md uppercase tracking-wider hover:bg-primary-container hover:-translate-y-0.5 hover:shadow-[0_4px_14px_0_rgba(85,27,28,0.39)] active:scale-95 transition-all duration-300 text-center"
+    >
+      Talk To Us
+    </a>
+
+    <button
+      type="button"
+      class="lg:hidden text-primary p-2 -mr-2"
+      [attr.aria-expanded]="menuOpen()"
+      aria-controls="mobile-nav-panel"
+      [attr.aria-label]="menuOpen() ? 'Close menu' : 'Open menu'"
+      (click)="toggleMenu()"
+    >
+      <span class="material-symbols-outlined" aria-hidden="true">{{ menuOpen() ? 'close' : 'menu' }}</span>
+    </button>
+  </nav>
+
+  @if (menuOpen()) {
+    <div
+      id="mobile-nav-panel"
+      class="lg:hidden border-t border-outline-variant bg-surface px-margin-mobile pb-6 pt-2 flex flex-col gap-1"
+    >
+      @for (link of navLinks; track link.path) {
+        <a
+          [routerLink]="link.path"
+          routerLinkActive="text-primary bg-surface-container-low font-semibold"
+          [routerLinkActiveOptions]="{ exact: link.path === '/' }"
+          class="text-on-surface-variant py-3 px-3 rounded transition-colors"
+          (click)="closeMenu()"
+        >
+          {{ link.label }}
+        </a>
+      }
+      <a
+        routerLink="/contact"
+        class="mt-3 bg-primary text-on-primary px-6 py-3 rounded-lg font-label-md text-label-md uppercase tracking-wider text-center"
+        (click)="closeMenu()"
+      >
+        Get a Quote
+      </a>
+    </div>
+  }
+</header>

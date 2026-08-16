@@ -1,0 +1,48 @@
+<div class="max-w-4xl mx-auto px-margin-mobile text-center relative">
+  <div class="mb-12">
+    <span class="material-symbols-outlined text-primary-container text-6xl opacity-20" aria-hidden="true">
+      format_quote
+    </span>
+  </div>
+
+  <div
+    class="overflow-hidden"
+    (touchstart)="onTouchStart($event)"
+    (touchend)="onTouchEnd($event)"
+    role="group"
+    aria-roledescription="carousel"
+    aria-label="Client testimonials"
+  >
+    @for (testimonial of testimonials(); track testimonial.name; let i = $index) {
+      @if (i === currentIndex()) {
+        <div class="flex flex-col items-center justify-center">
+          <blockquote class="font-headline-lg text-headline-lg text-on-surface mb-8 leading-relaxed max-w-3xl mx-auto">
+            "{{ testimonial.quote }}"
+          </blockquote>
+          <cite class="not-italic">
+            <span class="font-label-md text-label-md block mb-1 uppercase tracking-widest text-primary-container">
+              {{ testimonial.name }}
+            </span>
+            <span class="font-body-md text-on-surface-variant opacity-70">{{ testimonial.title }}</span>
+          </cite>
+        </div>
+      }
+    }
+  </div>
+
+  <div class="flex justify-center gap-3 mt-12">
+    @for (testimonial of testimonials(); track testimonial.name; let i = $index) {
+      <button
+        type="button"
+        [class]="
+          i === currentIndex()
+            ? 'w-2 h-2 rounded-full transition-all duration-300 bg-primary-container scale-125'
+            : 'w-2 h-2 rounded-full transition-all duration-300 bg-primary-container/30 hover:bg-primary-container/60'
+        "
+        [attr.aria-label]="'Go to testimonial ' + (i + 1) + ' of ' + testimonials().length"
+        [attr.aria-current]="i === currentIndex()"
+        (click)="goTo(i)"
+      ></button>
+    }
+  </div>
+</div>

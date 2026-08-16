@@ -1,0 +1,41 @@
+<footer class="bg-on-primary-fixed text-surface-container-lowest">
+  <div class="max-w-content mx-auto px-margin-mobile md:px-margin-desktop py-16 grid grid-cols-1 md:grid-cols-4 gap-gutter">
+    <div class="md:col-span-2">
+      <a routerLink="/" class="flex items-center gap-2 mb-6 w-fit" aria-label="Royal Traders home">
+        <app-brand-mark [inverse]="true" class="h-8 w-8" />
+        <span class="font-headline-md text-headline-md text-surface-container-lowest">Royal Traders</span>
+      </a>
+      <p class="font-body-md text-surface-variant max-w-sm mb-6">
+        © {{ currentYear }} Royal Traders. 30 Years of Security Printing Excellence. Delivering precision,
+        protection, and industrial quality globally.
+      </p>
+      <div class="mt-8">
+        <h5 class="font-label-md text-label-md text-primary-fixed-dim mb-4 uppercase">Certificates</h5>
+        <div class="flex flex-wrap gap-4 items-center">
+          @for (cert of certificates; track cert.src) {
+            <div class="relative h-10 w-16 bg-white/10 p-1 rounded overflow-hidden">
+              <img ngSrc="{{ cert.src }}" [alt]="cert.alt" fill sizes="10vw" class="object-contain" />
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h5 class="font-label-md text-label-md text-primary-fixed-dim mb-6 uppercase">Quick Links</h5>
+      <ul class="space-y-4 font-body-md">
+        @for (link of quickLinks; track link.label) {
+          <li class="text-surface-variant">{{ link.label }}</li>
+        }
+      </ul>
+    </div>
+
+    <div>
+      <h5 class="font-label-md text-label-md text-primary-fixed-dim mb-6 uppercase">Headquarters</h5>
+      <address class="not-italic font-body-md text-surface-variant leading-relaxed">
+        Royal Traders,<br />
+        Ghaziabad, Uttar Pradesh - 201001, India.
+      </address>
+    </div>
+  </div>
+</footer>
