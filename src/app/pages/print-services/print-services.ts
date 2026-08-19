@@ -55,28 +55,14 @@ export class PrintServices {
       description:
         'Bespoke design and printing solutions uniquely tailored to meet specialized client requirements and creative visions.',
     },
+    {
+      icon: 'school',
+      title: 'Academic Printing',
+      items: ['Degrees, certificates, marksheets and transcripts','Rexine and satin folders with premium finishing','Gowns, caps, stoles and sashes for convocations','T-shirts, medals, lapel pins and trophies'],
+    },
   ];
 
   protected readonly machines: Machine[] = [
-    {
-      image:
-        'https://lh3.googleusercontent.com/aida-public/AB6AXuBOM8Muuk7pgKKTgar3amUDxVr5BuwpOTm5n6QzCRR8xF3JsYtXpGvfBAQHahkoehWfPKshNJILbhSs8pqEw1DAJSldW89T3BPFaoZwsYJ4Ogmrx18za8XfRYoywLvEb_bFu_D-nFkgsZLPZU-CPGoMI3J9XB22pnxziZTtj0ZBQNxcpx6X60Ia49NLpDVT_LrB6EtdiTuz2HVJQE2SjoJRi9lkcjbNMMrr5Fez9XslKgm-YZGQIdLRMCESQkgzvESSmQ',
-      title: '10-Colour Flexographic Printing Machine',
-      usedFor: [
-        'Self-adhesive and pressure-sensitive labels',
-        'Flexible packaging materials',
-        'Packaging films and wrappers',
-        'Product labels for FMCG and consumer goods',
-        'Printed rolls and other web-based applications',
-      ],
-      capabilities: [
-        'High-speed roll-to-roll printing',
-        'Multi-colour printing',
-        'Precise colour registration',
-        'Consistent print quality across large production runs',
-        'Suitable for a wide range of flexible substrates',
-      ],
-    },
     {
       image:
         'https://lh3.googleusercontent.com/aida-public/AB6AXuBz6Iz5moenDoWggt0DFA_LVo0hFEod1sF6H5aPbHd9Cn_RSIrG3Uye1DyOsolzyg7Zx0PUbRPJFqx8yCBhN3WeVIWTtID2OsIS3XV11an-wON9xCldoSmxdbQwyra46CL4ybIkx554p-QbBREHI7xLf4NIH45HSqaC3mh5yoK2EjLBa9Z1ytdbFXqgHYkh6ACzm9X4wXSmMNQqzZ9N1RHze7fLl69t441nCeIy6Gmt1XQwPUg1SQDu2OK4yXuMHyTnDg',

@@ -1,3 +1,20 @@
+/**
+ * Builds a fluid `clamp()` font size that scales smoothly between a mobile
+ * minimum and a desktop maximum, instead of jumping at a single breakpoint.
+ * @param {number} minPx font size at `minVw`
+ * @param {number} maxPx font size at `maxVw`
+ * @param {number} minVw viewport width (px) where `minPx` applies
+ * @param {number} maxVw viewport width (px) where `maxPx` applies
+ */
+function fluidSize(minPx, maxPx, minVw = 375, maxVw = 1440) {
+  const minRem = minPx / 16;
+  const maxRem = maxPx / 16;
+  const slope = (maxRem - minRem) / (maxVw - minVw);
+  const yIntersectionRem = minRem - slope * minVw;
+  const slopeVw = (slope * 100).toFixed(4);
+  return `clamp(${minRem}rem, ${yIntersectionRem.toFixed(4)}rem + ${slopeVw}vw, ${maxRem}rem)`;
+}
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./src/**/*.{html,ts}'],
@@ -81,14 +98,14 @@ module.exports = {
         'body-md': ['Poppins', 'sans-serif'],
       },
       fontSize: {
-        'body-lg': ['18px', { lineHeight: '1.6', fontWeight: '400' }],
-        'display-lg-mobile': ['36px', { lineHeight: '1.2', fontWeight: '700' }],
-        'headline-md': ['24px', { lineHeight: '1.3', fontWeight: '600' }],
-        'headline-lg': ['32px', { lineHeight: '1.2', fontWeight: '600' }],
-        caption: ['12px', { lineHeight: '1.4', fontWeight: '500' }],
-        'label-md': ['14px', { lineHeight: '1.2', letterSpacing: '0.05em', fontWeight: '600' }],
-        'display-lg': ['48px', { lineHeight: '1.1', letterSpacing: '-0.02em', fontWeight: '700' }],
-        'body-md': ['16px', { lineHeight: '1.6', fontWeight: '400' }],
+        'body-lg': [fluidSize(16, 18), { lineHeight: '1.6', fontWeight: '400' }],
+        'display-lg-mobile': [fluidSize(28, 36, 375, 768), { lineHeight: '1.2', fontWeight: '700' }],
+        'headline-md': [fluidSize(20, 24), { lineHeight: '1.3', fontWeight: '600' }],
+        'headline-lg': [fluidSize(26, 32), { lineHeight: '1.2', fontWeight: '600' }],
+        caption: [fluidSize(11, 12), { lineHeight: '1.4', fontWeight: '500' }],
+        'label-md': [fluidSize(12, 14), { lineHeight: '1.2', letterSpacing: '0.05em', fontWeight: '600' }],
+        'display-lg': [fluidSize(36, 48, 768, 1440), { lineHeight: '1.1', letterSpacing: '-0.02em', fontWeight: '700' }],
+        'body-md': [fluidSize(14, 16), { lineHeight: '1.6', fontWeight: '400' }],
       },
       maxWidth: {
         content: '1280px',

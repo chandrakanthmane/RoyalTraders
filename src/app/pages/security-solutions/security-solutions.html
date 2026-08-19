@@ -22,19 +22,20 @@
 <!-- Precision engineering banner -->
 <section class="py-16 bg-on-primary-fixed text-surface-container-lowest overflow-hidden">
   <div class="max-w-content mx-auto px-margin-mobile md:px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-12">
-    <div class="flex-1">
+    <div class="flex-1 fade-in-section" appRevealOnScroll>
       <h2 class="font-headline-lg text-headline-lg mb-4 italic">Mechanical Precision in Every Micron.</h2>
       <p class="opacity-80 font-body-md max-w-md">
         Our high-security facility utilizes state-of-the-art German engineering to deliver unforgeable security
         elements for global institutions.
       </p>
     </div>
-    <div class="grid grid-cols-2 gap-8 text-center border-l border-white/20 pl-0 md:pl-12">
-      <div>
+    <div class="flex md:grid md:grid-cols-2 gap-8 text-center md:border-l md:border-white/20 pl-0 md:pl-12 fade-in-section" appRevealOnScroll>
+      <div class="flex-1 md:flex-auto">
         <div class="text-headline-lg font-bold"><span [appCountUp]="30">0</span></div>
         <div class="font-caption text-[10px] opacity-60">Years Excellence</div>
       </div>
-      <div>
+      <div class="w-px bg-white/20 md:hidden"></div>
+      <div class="flex-1 md:flex-auto">
         <div class="text-headline-lg font-bold"><span [appCountUp]="100">0</span>%</div>
         <div class="font-caption text-[10px] opacity-60">Secure Facility</div>
       </div>

@@ -25,8 +25,7 @@ interface Machine {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Packaging {
-  protected readonly heroImage =
-    'https://lh3.googleusercontent.com/aida-public/AB6AXuAt1O2nEBUyR6fxWtCmKbGeC1RmZBCCp4PPS7jKthaFR3sC9ElFJ809mlLFraAHoh9puP_1gUAPMpI6jWWMJe8ux0e40z2N-DnINAjIYvjDmRgSd2PwjyZwuejcUNEk456V0XzwrwyolVCCGky8tS582SF20N5JLdma5hB0lQHLgkhPU_boMMX24cvMkT2c2gM2ILNovDzxouopMhfkuw2psmmPFNbIbaUpJGCKThfj_SRuMhwgOE3oFmXk5RiCAPH_Fw';
+  protected readonly heroImage = '/packaging_Heroimage.jpeg';
 
   protected readonly offerings: Offering[] = [
     {
@@ -106,17 +105,21 @@ export class Packaging {
     },
     {
       image:
-        'https://lh3.googleusercontent.com/aida-public/AB6AXuDPUIadcDFnEeGUl8_4nR1FQCsqnQDXiBhWwtzkfvNo7o8iYW4i5SYL0mgi6yR2s7ZlIODcTS2DkFLO1cNuTl9TuaBtBjW0T9sej3AJM87qfvhxaZAadtNTO9o4SAmu7vrJqjrFHYZsBUi4IoZfhsHlIyLEeejP-_c7Nd9SkroonWMoVwSev6qXtbMqiKojTol8YFu3CYWz0XXZogD1gJRi-n0DAJ3OumdsSW9vZuxiAuPk-JIMZuz8X31pltucnA5n7w',
-      title: 'Automatic Pouching Machine',
+        'https://lh3.googleusercontent.com/aida-public/AB6AXuBOM8Muuk7pgKKTgar3amUDxVr5BuwpOTm5n6QzCRR8xF3JsYtXpGvfBAQHahkoehWfPKshNJILbhSs8pqEw1DAJSldW89T3BPFaoZwsYJ4Ogmrx18za8XfRYoywLvEb_bFu_D-nFkgsZLPZU-CPGoMI3J9XB22pnxziZTtj0ZBQNxcpx6X60Ia49NLpDVT_LrB6EtdiTuz2HVJQE2SjoJRi9lkcjbNMMrr5Fez9XslKgm-YZGQIdLRMCESQkgzvESSmQ',
+      title: '10-Colour Flexographic Printing Machine',
       usedFor: [
-        'Stand-up pouches with zippers',
-        'Center-seal and three-side seal bags',
-        'Specialized retail packaging formats',
+        'Self-adhesive and pressure-sensitive labels',
+        'Flexible packaging materials',
+        'Packaging films and wrappers',
+        'Product labels for FMCG and consumer goods',
+        'Printed rolls and other web-based applications',
       ],
       capabilities: [
-        'High-speed forming, filling, and sealing',
-        'Precise temperature and pressure controls',
-        'Consistent seal integrity and aesthetics',
+        'High-speed roll-to-roll printing',
+        'Multi-colour printing',
+        'Precise colour registration',
+        'Consistent print quality across large production runs',
+        'Suitable for a wide range of flexible substrates',
       ],
     },
   ];

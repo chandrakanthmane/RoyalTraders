@@ -6,23 +6,33 @@ import {
 } from '@angular/ssr/node';
 import express from 'express';
 import { join } from 'node:path';
+import 'dotenv/config';
+import { sendContactEmail, validateContactPayload } from './server/contact-mailer';
 
 const browserDistFolder = join(import.meta.dirname, '../browser');
 
 const app = express();
 const angularApp = new AngularNodeAppEngine();
 
+app.use(express.json());
+
 /**
- * Example Express Rest API endpoints can be defined here.
- * Uncomment and define endpoints as necessary.
- *
- * Example:
- * ```ts
- * app.get('/api/{*splat}', (req, res) => {
- *   // Handle API request
- * });
- * ```
+ * Contact form submission — validates the payload and emails it via nodemailer.
  */
+app.post('/api/contact', (req, res) => {
+  const result = validateContactPayload(req.body);
+  if (!result.valid) {
+    res.status(400).json({ ok: false, error: result.error });
+    return;
+  }
+
+  sendContactEmail(result.data)
+    .then(() => res.status(200).json({ ok: true }))
+    .catch((error) => {
+      console.error('Failed to send contact email', error);
+      res.status(502).json({ ok: false, error: 'Unable to send your message right now. Please try again later.' });
+    });
+});
 
 /**
  * Serve static files from /browser

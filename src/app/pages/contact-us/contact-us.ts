@@ -1,19 +1,22 @@
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
-import { NgOptimizedImage } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Title } from '@angular/platform-browser';
+import { DomSanitizer, SafeResourceUrl, Title } from '@angular/platform-browser';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { firstValueFrom } from 'rxjs';
 
 type SubmitState = 'idle' | 'submitting' | 'success' | 'error';
 
+type SocialPlatform = 'instagram' | 'pinterest' | 'linkedin' | 'facebook';
+
 interface SocialLink {
-  icon: string;
+  platform: SocialPlatform;
   label: string;
   href: string;
 }
 
 @Component({
   selector: 'app-contact-us',
-  imports: [NgOptimizedImage, ReactiveFormsModule],
+  imports: [ReactiveFormsModule],
   templateUrl: './contact-us.html',
   styleUrl: './contact-us.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -21,18 +24,27 @@ interface SocialLink {
 export class ContactUs {
   private readonly formBuilder = inject(FormBuilder);
   private readonly title = inject(Title);
+  private readonly sanitizer = inject(DomSanitizer);
+  private readonly http = inject(HttpClient);
 
-  protected readonly mapImage =
-    'https://lh3.googleusercontent.com/aida-public/AB6AXuA1VmdFZP8Uz4BPnklez9U82ZxfpwAiQKj4474bdyctka6-K3Ejc2-hlb1PbV6dfLVfIgWRHDOdH4H1LwEiuQS39XHLiUdfAQQeQNxg9uQJDEVJCNVOc6Ld0ICHXWP2lod7o9spxgv7MsXB8uGdsiLNcLhog3kWjxRpKPBu_AKFG2mJSr3CSqFXo7Yy3Gu2bJ-xYwQ-kt87mYj9WW_w4bA-6RMAJbivGB7ZqDSOc06iaOqdsdbazlBM';
+  private readonly address = 'S-7, Rampuri, Ghaziabad, Uttar Pradesh-201011, INDIA';
+
+  protected readonly mapEmbedUrl: SafeResourceUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
+    `https://www.google.com/maps?q=${encodeURIComponent(this.address)}&output=embed`,
+  );
+
+  protected readonly mapDirectionsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(this.address)}`;
 
   protected readonly socialLinks: SocialLink[] = [
-    { icon: 'camera_alt', label: 'Instagram', href: '#' },
-    { icon: 'thumb_up', label: 'Facebook', href: '#' },
-    { icon: 'work', label: 'LinkedIn', href: '#' },
-    { icon: 'chat', label: 'Twitter', href: '#' },
+    { platform: 'instagram', label: 'Instagram', href: '#' },
+    { platform: 'pinterest', label: 'Pinterest', href: '#' },
+    { platform: 'linkedin', label: 'LinkedIn', href: '#' },
+    { platform: 'facebook', label: 'Facebook', href: '#' },
   ];
 
   protected readonly submitState = signal<SubmitState>('idle');
+  protected readonly showSuccessModal = signal(false);
+  protected readonly errorMessage = signal('');
 
   protected readonly form = this.formBuilder.nonNullable.group({
     name: ['', [Validators.required, Validators.minLength(2)]],
@@ -45,17 +57,29 @@ export class ContactUs {
     this.title.setTitle('Contact Us | Royal Traders');
   }
 
-  protected submit(): void {
+  protected async submit(): Promise<void> {
     if (this.form.invalid) {
       this.form.markAllAsTouched();
       return;
     }
 
     this.submitState.set('submitting');
+    this.errorMessage.set('');
 
-    setTimeout(() => {
+    try {
+      await firstValueFrom(this.http.post<{ ok: boolean }>('/api/contact', this.form.getRawValue()));
       this.submitState.set('success');
+      this.showSuccessModal.set(true);
       this.form.reset();
-    }, 800);
+    } catch (error) {
+      this.submitState.set('error');
+      const fallback = 'Something went wrong. Please try again or reach us by phone or email.';
+      this.errorMessage.set(error instanceof HttpErrorResponse ? error.error?.error ?? fallback : fallback);
+    }
+  }
+
+  protected closeSuccessModal(): void {
+    this.showSuccessModal.set(false);
+    this.submitState.set('idle');
   }
 }

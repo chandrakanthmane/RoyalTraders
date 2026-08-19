@@ -4,6 +4,7 @@ import { RouterLink } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { RevealOnScrollDirective } from '../../shared/reveal-on-scroll.directive';
 import { CountUpDirective } from '../../shared/count-up.directive';
+import { BrandMark } from '../../shared/brand-mark/brand-mark';
 
 interface Stat {
   value: number;
@@ -25,7 +26,7 @@ interface FeatureCard {
 
 @Component({
   selector: 'app-about-us',
-  imports: [NgOptimizedImage, RouterLink, RevealOnScrollDirective, CountUpDirective],
+  imports: [NgOptimizedImage, RouterLink, RevealOnScrollDirective, CountUpDirective, BrandMark],
   templateUrl: './about-us.html',
   styleUrl: './about-us.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -6,7 +6,6 @@ html,
 body {
   margin: 0;
   padding: 0;
-  scroll-behavior: smooth;
 }
 
 body {
@@ -96,7 +95,7 @@ body {
 
 @media (prefers-reduced-motion: no-preference) {
   .animate-marquee {
-    animation: marquee 30s linear infinite;
+    animation: marquee 60s linear infinite;
   }
 }
 
