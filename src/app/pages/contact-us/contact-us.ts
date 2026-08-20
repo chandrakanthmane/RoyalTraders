@@ -28,9 +28,10 @@ export class ContactUs {
   private readonly http = inject(HttpClient);
 
   private readonly address = 'S-7, Rampuri, Ghaziabad, Uttar Pradesh-201011, INDIA';
+  private readonly mapQuery = 'Ghaziabad, Uttar Pradesh, India';
 
   protected readonly mapEmbedUrl: SafeResourceUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
-    `https://www.google.com/maps?q=${encodeURIComponent(this.address)}&output=embed`,
+    `https://www.google.com/maps?q=${encodeURIComponent(this.mapQuery)}&output=embed`,
   );
 
   protected readonly mapDirectionsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(this.address)}`;
