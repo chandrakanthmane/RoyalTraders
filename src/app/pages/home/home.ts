@@ -7,7 +7,7 @@ import { LogoMarquee, LogoMarqueeItem } from '../../shared/logo-marquee/logo-mar
 import { TestimonialCarousel, Testimonial } from '../../shared/testimonial-carousel/testimonial-carousel';
 
 interface ServiceCard {
-  icon: string;
+  image: string;
   title: string;
   description: string;
   bullets: string[];
@@ -28,8 +28,7 @@ interface FeatureCard {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Home {
-  protected readonly heroImage =
-    'https://lh3.googleusercontent.com/aida-public/AB6AXuCL6p3ttRNpFyQmvlciiEsOAg_2Eg6UYlgTyj-akwMm-0wQMuwMcQX4NKr8iB88dW-usc5heCJ-qhG6howrHyLp2HxaI5VyV_Zv-ByI9e0qOrRUI1BwzUpIVQhWyeixPUIp3J1V0h_-V9wD7yd0jLoBW4qFSol8FsOT-vpeEkqm_A-QWe4hGySlIxZqj3ZmvHkfos89UQcZputPptG2FNo4ng4wAg3WwMXcSEPMudaDGllezQWyvpGhm5bZw-FB5hhOyg';
+  protected readonly heroVideo = 'HomepageVideo.mp4';
 
   protected readonly clients: LogoMarqueeItem[] = [
     { src: 'images/Bank%20of%20seirra.PNG', alt: 'Bank of Sierra Leone' },
@@ -59,7 +58,8 @@ export class Home {
 
   protected readonly services: ServiceCard[] = [
     {
-      icon: 'print',
+      image:
+        'https://lh3.googleusercontent.com/aida-public/AB6AXuCQ_0Kty9rnnsOYlzJTCi2pNuwGPgRcIU-g8bjR8O43tA2zxcDQHep7V4PPXb9WCz_0yx9dGcPG0v8t1wXEMk4mCaTNxQlrsnW5UNkkObfCQdXojRAHMvsAxvZNVzgP_bxR7VUobJs04wXoGPBFk1K5sdL4R50AuFRaCnp6MgUZkmWaZH79EDTA2nYtQdE6bNn_K5uMyUfS3B_bbjlOtcmNiVt4bT3CBABJkYqN-wCyaCc7Ek3m5Exf2OaHdZLzU7Tgjw',
       title: 'PRINT',
       description:
         'High-precision offset and digital printing for high-volume industrial requirements with micron-level accuracy.',
@@ -67,7 +67,8 @@ export class Home {
       path: '/print',
     },
     {
-      icon: 'inventory_2',
+      image:
+        'https://lh3.googleusercontent.com/aida-public/AB6AXuAO1n09j7xI3DULdvW-xYxJ4nb-UmD6Sb93fLnxI1mhPUz8ShdXKtTes19JWWuON96DUKUv2yfotPnwr--iDNhTJ8UdV6t-bSprnWU3fGJme6V-DMa_5DTTXYoenw-C6wqe6bwNx0QmXbXNxb85qN1N0rRGtdiqhPMKZS5yS1_yN4NIiJIDvHYLPm-yObFRRvgU-rJSmt9ekoIZxBjmWY8nbKDO4vUHfbbwY85FZdGNokJReSE1OiFdTolrUwzGHhxveg',
       title: 'PACKAGING',
       description:
         'Custom engineered industrial packaging solutions that balance brand aesthetic with structural durability.',
@@ -75,7 +76,8 @@ export class Home {
       path: '/packaging',
     },
     {
-      icon: 'verified_user',
+      image:
+        'https://lh3.googleusercontent.com/aida-public/AB6AXuA2pBFvNL2EO1RIRe3vy5ig0CRTOcQty9uDBQnBVQkauDXrVDjtJACTkaZzWazD4q4cECZg0AKlVV06T0kxNOqkYF13ZCtZEIMSHJOqWVcVHH-vqYl49mx1NeASTsyywbBg2XyR6vEus7fQvw05oZrFLR-opFbpGPxbNi-WKjkWnmilw0MfNjnpcA3YJrUcE8WNwRvhgpBonfCz2-l4gD09E9OnGXvwhkqPlfLN9Q0NZDIHlDKpHs2H7YVIKIBnow9KZA',
       title: 'SECURITY SOLUTIONS',
       description:
         'Anti-counterfeit measures and secure tracking systems for certificates, currency-grade documents, and pharma labels.',

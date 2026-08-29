@@ -1,15 +1,18 @@
 <!-- Hero -->
 <section class="relative min-h-[80vh] md:min-h-[90vh] flex items-center overflow-hidden">
   <div class="absolute inset-0 z-0 bg-gradient-to-br from-on-primary-fixed to-primary">
-    <img
-      ngSrc="{{ heroImage }}"
-      alt="High-end industrial precision printing facility"
-      fill
-      priority
-      sizes="100vw"
-      class="object-cover brightness-[0.4]"
-    />
-    <div class="absolute inset-0 bg-black/40"></div>
+    <video
+      #heroVideoEl
+      [src]="heroVideo"
+      [muted]="true"
+      autoplay
+      loop
+      playsinline
+      aria-hidden="true"
+      (loadeddata)="heroVideoEl.muted = true"
+      class="absolute inset-0 h-full w-full object-cover brightness-[0.4]"
+    ></video>
+    <div class="absolute inset-0 bg-black/50"></div>
   </div>
   <div class="relative z-10 max-w-content mx-auto px-margin-mobile md:px-margin-desktop text-white w-full py-32 md:py-48 text-center flex flex-col items-center">
     <div class="max-w-3xl mx-auto">
@@ -59,8 +62,14 @@
           [class.stagger-3]="i === 2"
           appRevealOnScroll
         >
-          <div class="mb-6 text-primary-container transition-transform duration-300 group-hover:scale-110">
-            <span class="material-symbols-outlined text-5xl" aria-hidden="true">{{ service.icon }}</span>
+          <div class="mb-6 h-48 relative overflow-hidden rounded-lg">
+            <img
+              ngSrc="{{ service.image }}"
+              [alt]="service.title"
+              fill
+              sizes="(min-width: 768px) 33vw, 100vw"
+              class="object-cover transition-transform duration-500 group-hover:scale-110"
+            />
           </div>
           <h3 class="font-headline-md text-headline-md mb-4 group-hover:text-primary transition-colors">
             {{ service.title }}

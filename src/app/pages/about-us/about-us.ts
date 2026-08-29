@@ -4,7 +4,6 @@ import { RouterLink } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { RevealOnScrollDirective } from '../../shared/reveal-on-scroll.directive';
 import { CountUpDirective } from '../../shared/count-up.directive';
-import { BrandMark } from '../../shared/brand-mark/brand-mark';
 
 interface Stat {
   value: number;
@@ -26,7 +25,7 @@ interface FeatureCard {
 
 @Component({
   selector: 'app-about-us',
-  imports: [NgOptimizedImage, RouterLink, RevealOnScrollDirective, CountUpDirective, BrandMark],
+  imports: [NgOptimizedImage, RouterLink, RevealOnScrollDirective, CountUpDirective],
   templateUrl: './about-us.html',
   styleUrl: './about-us.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -34,6 +33,12 @@ interface FeatureCard {
 export class AboutUs {
   protected readonly logisticsImage =
     'https://lh3.googleusercontent.com/aida-public/AB6AXuBh11LiWan5X98dlh1ZShtZdD73Y5bTneffWZysRFRWiE-RpjOpE_LhBXmMXON-_CUxGH3TveSeiIZJqQalfDlm4yDQ6KalZcY4V_uHxEItrhEI4vA5JB_iSZuxJ34WeTkwGHiAZO4EmCvXWZ7ndFGDAWLWtccyVe1ZWjfELwXy_37083WvGakp6EpeZDPCXmNEr5Bf6RVsm137nBf-IpyYGMq9mZPj7A8u7d6ZQ7bemHZA9I6qUL5W0Iu9AV1WYGgQ_A';
+
+  protected readonly facilityImage =
+    'https://lh3.googleusercontent.com/aida-public/AB6AXuC4E5dmE1AxCHY6oquP6sCAl4QR1pRQhEKfGRKVy5nxfWTooK54_xifBM6gkrdr4AsXNDN7EayzURqQ-Hq9WwJGX1zGKb61VHPA80DxBUlMzx5KJ708i6iTWuG6IpNBigIUmE2O_PmneIVb-Q1JMZVUc6qyUMeiPtdDCvsupDb8gwhqbHzyoa4KY0HpwjtEb0yCwMp7o4It7hVil0D_5cknVJML6B1MYY3RJ86dFo0I9VS6XwfUMFJ0';
+
+  protected readonly machineryImage =
+    'https://lh3.googleusercontent.com/aida-public/AB6AXuDTUozJjl9jR6DWbo-Da4vdlWe_LIXQhekc7DkOKszY1j9mEpkSWd2Zoj1U2COv2AMlc0UjuFRDRXFFdD_nEdewPDhac9WS_ZfVscrOLED74F_SxLhqp3gln2N3bn6CPRUL2pLxAWbVxdwXp3h4WIA5nXFwmu_IGb-DgR5pt48860PEwmVN0hzLNrvqZKktg3DhJ3aF6QD00iOT4x3gVyBMxc95EdvLPJz3M-fmZHweG76SZUJYLQde';
 
   protected readonly stats: Stat[] = [
     { value: 30, suffix: '+', label: 'Years Experience' },

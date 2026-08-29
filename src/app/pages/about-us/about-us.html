@@ -31,8 +31,15 @@
       </div>
     </div>
     <div class="lg:col-span-5 relative mt-12 lg:mt-0">
-      <div class="aspect-square rounded-lg overflow-hidden border border-surface-variant relative flex items-center justify-center">
-        <app-brand-mark class="h-2/3 w-2/3 text-primary-container opacity-30" />
+      <div class="aspect-square rounded-lg overflow-hidden border border-surface-variant relative">
+        <img
+          ngSrc="{{ facilityImage }}"
+          alt="Modern manufacturing facility with high-speed printing press"
+          fill
+          priority
+          sizes="(min-width: 1024px) 40vw, 100vw"
+          class="object-cover"
+        />
       </div>
       <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-primary-container/10 -z-10 blur-2xl" aria-hidden="true"></div>
     </div>
@@ -51,8 +58,8 @@
         class="object-cover"
       />
       <div class="absolute inset-0 bg-gradient-to-t from-primary-container/60 to-transparent"></div>
-      <div class="absolute bottom-8 left-8 md:bottom-12 md:left-12 max-w-lg">
-        <p class="font-headline-md text-headline-md text-white mb-2 italic">
+      <div class="absolute bottom-8 left-8 md:bottom-12 md:left-12 max-w-xl md:max-w-none">
+        <p class="font-headline-md text-headline-md text-white mb-2 italic md:whitespace-nowrap">
           "Precision in every print, security in every shipment."
         </p>
         <p class="font-label-md text-label-md text-primary-fixed uppercase tracking-[0.2em]">Our Operational Core</p>
@@ -156,13 +163,24 @@
       <span class="font-label-md text-label-md text-primary-container uppercase tracking-widest mb-4 block">
         Infrastructure
       </span>
-      <h2 class="font-headline-lg text-headline-lg mb-6">Built for Scale. Driven by Technology.</h2>
+      <h2 class="font-headline-lg text-headline-lg md:text-[2.75rem] md:leading-tight mb-6">
+        Built for Scale. Driven by Technology.
+      </h2>
       <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
         Our manufacturing infrastructure is designed to support diverse printing, packaging, and document
         production requirements at scale. With 4 specialized manufacturing units, 6 warehousing facilities, and
         advanced global machinery, we combine manufacturing capacity with efficient storage and production
         capabilities to serve a wide range of customer requirements.
       </p>
+    </div>
+    <div class="mb-16 rounded-xl overflow-hidden border border-surface-variant shadow-lg h-[320px] md:h-[400px] relative scale-up-section" appRevealOnScroll>
+      <img
+        ngSrc="{{ machineryImage }}"
+        alt="High-tech security printing machine"
+        fill
+        sizes="100vw"
+        class="object-cover"
+      />
     </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
       @for (item of infrastructure; track item.title; let i = $index) {
