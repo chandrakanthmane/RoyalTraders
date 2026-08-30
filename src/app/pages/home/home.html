@@ -5,12 +5,14 @@
       #heroVideoEl
       [src]="heroVideo"
       [muted]="true"
-      autoplay
       loop
       playsinline
+      preload="auto"
       aria-hidden="true"
-      (loadeddata)="heroVideoEl.muted = true"
-      class="absolute inset-0 h-full w-full object-cover brightness-[0.4]"
+      (canplaythrough)="onHeroVideoReady(heroVideoEl)"
+      class="absolute inset-0 h-full w-full object-cover brightness-[0.4] transition-opacity duration-700 ease-out"
+      [class.opacity-0]="!heroVideoReady()"
+      [class.opacity-100]="heroVideoReady()"
     ></video>
     <div class="absolute inset-0 bg-black/50"></div>
   </div>

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { Title } from '@angular/platform-browser';
@@ -29,6 +29,17 @@ interface FeatureCard {
 })
 export class Home {
   protected readonly heroVideo = 'HomepageVideo.mp4';
+
+  /** Flips to true once the hero video is fully buffered and can play through without stalling. */
+  protected readonly heroVideoReady = signal(false);
+
+  protected onHeroVideoReady(video: HTMLVideoElement): void {
+    video.muted = true;
+    this.heroVideoReady.set(true);
+    void video.play().catch(() => {
+      // Autoplay can still be blocked; the poster gradient stays visible in that case.
+    });
+  }
 
   protected readonly clients: LogoMarqueeItem[] = [
     { src: 'images/Bank%20of%20seirra.PNG', alt: 'Bank of Sierra Leone' },
