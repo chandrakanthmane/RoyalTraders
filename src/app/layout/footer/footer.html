@@ -27,6 +27,15 @@
         @for (link of quickLinks; track link.label) {
           <li class="text-surface-variant">{{ link.label }}</li>
         }
+        <li>
+          <button
+            type="button"
+            (click)="consent.reopen()"
+            class="text-surface-variant hover:text-primary-fixed-dim transition-colors duration-300"
+          >
+            Manage cookies
+          </button>
+        </li>
       </ul>
     </div>
 

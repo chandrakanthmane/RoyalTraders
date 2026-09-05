@@ -1,7 +1,8 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { BrandMark } from '../../shared/brand-mark/brand-mark';
+import { ConsentService } from '../../shared/cookie-consent/consent.service';
 
 interface Certificate {
   alt: string;
@@ -20,6 +21,7 @@ interface QuickLink {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Footer {
+  protected readonly consent = inject(ConsentService);
   protected readonly currentYear = new Date().getFullYear();
 
   protected readonly quickLinks: QuickLink[] = [

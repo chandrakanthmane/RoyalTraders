@@ -1,16 +1,12 @@
-import { ChangeDetectionStrategy, Component, afterNextRender, signal } from '@angular/core';
-
-const STORAGE_KEY = 'royal-traders-cookie-consent';
-
-type ConsentStatus = 'accepted' | 'rejected' | 'partial';
-
-interface StoredCookieConsent {
-  necessary: true;
-  analytics: boolean;
-  marketing: boolean;
-  status: ConsentStatus;
-  updatedAt: string;
-}
+import {
+  ChangeDetectionStrategy,
+  Component,
+  afterNextRender,
+  computed,
+  inject,
+  signal,
+} from '@angular/core';
+import { ConsentService } from './consent.service';
 
 @Component({
   selector: 'app-cookie-consent',
@@ -19,65 +15,65 @@ interface StoredCookieConsent {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CookieConsent {
-  protected readonly visible = signal(false);
+  private readonly consent = inject(ConsentService);
+
+  protected readonly visible = this.consent.bannerOpen;
+  protected readonly config = this.consent.config;
   protected readonly showDetails = signal(false);
-  protected readonly analyticsEnabled = signal(true);
-  protected readonly marketingEnabled = signal(true);
+
+  /** Per-category on/off state while the preferences panel is open. */
+  protected readonly selections = signal<Record<string, boolean>>({});
+
+  protected readonly categories = computed(() => this.config().categories);
 
   constructor() {
-    afterNextRender(() => {
-      if (!this.readStoredConsent()) {
-        this.visible.set(true);
-      }
-    });
+    afterNextRender(() => this.consent.init());
   }
 
   protected toggleDetails(): void {
+    if (!this.showDetails()) {
+      this.resetSelections();
+    }
     this.showDetails.update((open) => !open);
   }
 
-  protected toggleAnalytics(): void {
-    this.analyticsEnabled.update((enabled) => !enabled);
+  protected toggleCategory(key: string): void {
+    this.selections.update((current) => ({ ...current, [key]: !current[key] }));
   }
 
-  protected toggleMarketing(): void {
-    this.marketingEnabled.update((enabled) => !enabled);
+  protected isSelected(key: string): boolean {
+    return this.selections()[key] ?? false;
   }
 
   protected acceptAll(): void {
-    this.saveConsent('accepted', true, true);
+    this.consent.save('accepted', this.everyCategory(true));
   }
 
   protected rejectAll(): void {
-    this.saveConsent('rejected', false, false);
+    this.consent.save('rejected', this.everyCategory(false));
   }
 
   protected savePreferences(): void {
-    this.saveConsent('partial', this.analyticsEnabled(), this.marketingEnabled());
+    this.consent.save('partial', { ...this.selections() });
   }
 
-  private readStoredConsent(): StoredCookieConsent | null {
-    try {
-      const raw = localStorage.getItem(STORAGE_KEY);
-      return raw ? (JSON.parse(raw) as StoredCookieConsent) : null;
-    } catch {
-      return null;
-    }
+  private everyCategory(value: boolean): Record<string, boolean> {
+    return Object.fromEntries(
+      this.config().categories.map((category) => [
+        category.key,
+        category.required ? true : value,
+      ])
+    );
   }
 
-  private saveConsent(status: ConsentStatus, analytics: boolean, marketing: boolean): void {
-    const consent: StoredCookieConsent = {
-      necessary: true,
-      analytics,
-      marketing,
-      status,
-      updatedAt: new Date().toISOString(),
-    };
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(consent));
-    } catch {
-      /* private-browsing storage limits — consent still applies for this session */
-    }
-    this.visible.set(false);
+  private resetSelections(): void {
+    this.selections.set(
+      Object.fromEntries(
+        this.config().categories.map((category) => [
+          category.key,
+          category.required ? true : category.defaultEnabled,
+        ])
+      )
+    );
   }
 }

@@ -8,6 +8,7 @@ import express from 'express';
 import { join } from 'node:path';
 import 'dotenv/config';
 import { sendContactEmail, validateContactPayload } from './server/contact-mailer';
+import { fetchCookieConfig, storeConsent, validateConsentPayload } from './server/consent-store';
 
 const browserDistFolder = join(import.meta.dirname, '../browser');
 
@@ -31,6 +32,36 @@ app.post('/api/contact', (req, res) => {
     .catch((error) => {
       console.error('Failed to send contact email', error);
       res.status(502).json({ ok: false, error: 'Unable to send your message right now. Please try again later.' });
+    });
+});
+
+/**
+ * Cookie consent — GET returns the dynamic banner config, POST logs a decision.
+ */
+app.get('/api/consent', (_req, res) => {
+  fetchCookieConfig()
+    .then((config) => {
+      res.setHeader('Cache-Control', 'public, s-maxage=300, stale-while-revalidate=600');
+      res.status(200).json({ ok: true, config });
+    })
+    .catch((error) => {
+      console.error('Failed to load cookie config', error);
+      res.status(502).json({ ok: false, error: 'Unable to load cookie config.' });
+    });
+});
+
+app.post('/api/consent', (req, res) => {
+  const result = validateConsentPayload(req.body);
+  if (!result.valid) {
+    res.status(400).json({ ok: false, error: result.error });
+    return;
+  }
+
+  storeConsent(result.data)
+    .then(() => res.status(201).json({ ok: true }))
+    .catch((error) => {
+      console.error('Failed to store consent', error);
+      res.status(502).json({ ok: false, error: 'Unable to store consent right now.' });
     });
 });
 
