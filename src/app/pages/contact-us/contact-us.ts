@@ -1,8 +1,20 @@
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
-import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, ReactiveFormsModule, ValidationErrors, Validators } from '@angular/forms';
 import { DomSanitizer, SafeResourceUrl, Title } from '@angular/platform-browser';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
+
+const EMAIL_PATTERN = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+function phoneNumberValidator(control: AbstractControl<string>): ValidationErrors | null {
+  const value = control.value?.trim();
+  if (!value) {
+    return null;
+  }
+
+  const digitsOnly = value.replace(/[\s()+-]/g, '');
+  return /^\d{10,15}$/.test(digitsOnly) ? null : { phoneFormat: true };
+}
 
 type SubmitState = 'idle' | 'submitting' | 'success' | 'error';
 
@@ -49,8 +61,8 @@ export class ContactUs {
 
   protected readonly form = this.formBuilder.nonNullable.group({
     name: ['', [Validators.required, Validators.minLength(2)]],
-    phone: ['', [Validators.required, Validators.pattern(/^[0-9+()\-\s]{7,15}$/)]],
-    email: ['', [Validators.required, Validators.email]],
+    phone: ['', [Validators.required, phoneNumberValidator]],
+    email: ['', [Validators.required, Validators.pattern(EMAIL_PATTERN)]],
     message: [''],
   });
 

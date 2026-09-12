@@ -8,6 +8,7 @@ import express from 'express';
 import { join } from 'node:path';
 import 'dotenv/config';
 import { sendContactEmail, validateContactPayload } from './server/contact-mailer';
+import { storeContactSubmission } from './server/contact-store';
 import { fetchCookieConfig, storeConsent, validateConsentPayload } from './server/consent-store';
 
 const browserDistFolder = join(import.meta.dirname, '../browser');
@@ -27,10 +28,10 @@ app.post('/api/contact', (req, res) => {
     return;
   }
 
-  sendContactEmail(result.data)
+  Promise.all([sendContactEmail(result.data), storeContactSubmission(result.data)])
     .then(() => res.status(200).json({ ok: true }))
     .catch((error) => {
-      console.error('Failed to send contact email', error);
+      console.error('Failed to process contact submission', error);
       res.status(502).json({ ok: false, error: 'Unable to send your message right now. Please try again later.' });
     });
 });

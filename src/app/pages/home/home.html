@@ -9,10 +9,9 @@
       playsinline
       preload="auto"
       aria-hidden="true"
-      (canplaythrough)="onHeroVideoReady(heroVideoEl)"
-      class="absolute inset-0 h-full w-full object-cover brightness-[0.4] transition-opacity duration-700 ease-out"
-      [class.opacity-0]="!heroVideoReady()"
-      [class.opacity-100]="heroVideoReady()"
+      poster="HomepageVideoPoster.jpg"
+      (loadeddata)="onHeroVideoReady(heroVideoEl)"
+      class="absolute inset-0 h-full w-full object-cover brightness-[0.4]"
     ></video>
     <div class="absolute inset-0 bg-black/50"></div>
   </div>
