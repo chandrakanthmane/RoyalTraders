@@ -33,8 +33,7 @@ export class Packaging {
       description:
         'Printed labels provide an important touchpoint for product identification, branding, and essential information communication. We manufacture high-quality labels suitable for various applications and environmental conditions.',
       applications: 'Product Labels, Brand Labels, Packaging Labels, Information Labels, Customized Labels.',
-      image:
-        'https://lh3.googleusercontent.com/aida-public/AB6AXuDbQjMnvOk6PWWlm2AnXDoaX-lZSOA3dXI4uReiCM0nFzxzUS6MSowv8RUU1CorBpHbwW6nZibK63f3hdfrCLh7CmNvJMMQJ6YZ9KlCcGSW1ZtOPcOenrBAPLUp6x-gvCzPA0qr4ObsFw88GYmHRDYaeCZ00nslLcj_dvejhQy2GozHZ3jRFJM6aiLqXWNKoUaxCFYZc1nKx8qyLq5f4SGCCwuj2RdVXE94XoK2GwITm-dGldOWv3cxp91I06eymNVJIQ',
+      image: 'images/optimized/packaging-labels.webp',
     },
     {
       title: 'Corrugated Boxes',
@@ -42,16 +41,14 @@ export class Packaging {
         'We provide corrugated box solutions for product packaging, transportation, and retail display. Our boxes are engineered to offer an optimal balance of strength, protection, and ease of handling.',
       applications:
         'Product Boxes, Shipping Boxes, Transport Packaging, Retail Packaging, Customized Corrugated Boxes.',
-      image:
-        'https://lh3.googleusercontent.com/aida-public/AB6AXuAt1O2nEBUyR6fxWtCmKbGeC1RmZBCCp4PPS7jKthaFR3sC9ElFJ809mlLFraAHoh9puP_1gUAPMpI6jWWMJe8ux0e40z2N-DnINAjIYvjDmRgSd2PwjyZwuejcUNEk456V0XzwrwyolVCCGky8tS582SF20N5JLdma5hB0lQHLgkhPU_boMMX24cvMkT2c2gM2ILNovDzxouopMhfkuw2psmmPFNbIbaUpJGCKThfj_SRuMhwgOE3oFmXk5RiCAPH_Fw',
+      image: 'images/optimized/packaging-corrugated-boxes.webp',
     },
     {
       title: 'Laminates',
       description:
         'Our laminated packaging materials combine multiple layers of substrates to achieve specific performance requirements, including barrier properties, strength, protection, printability, and functionality.',
       applications: 'Flexible Packaging, Food Packaging, Pouch Manufacturing, Wrapping Applications, Product Protection.',
-      image:
-        'https://lh3.googleusercontent.com/aida-public/AB6AXuBcN0gxyfO9ULi1QT9sJEGIA0boO9rFwBsMavD4t2pAEh1qHBL5FHFcF8pvr9iplHOhH2caYzbbjZg-63o61kEOvULR_2Rse3yJf7RYIOwrpa7ZVadTeCNVIKhUY06Glmwz0XtX7yyGUPKe83_kSp85vsWtSKJ2u1_aV2OGUueJsw494MLC66Fr9bNYwES_Y47ogcP3YTNJ39KbIbhVCH1iKhUJCxHx72frtKJP-WerQwJ1LSSuwHDEmBFLMtnNVoob8A',
+      image: 'images/optimized/packaging-laminates.webp',
     },
     {
       title: 'Pouches',
@@ -59,23 +56,20 @@ export class Packaging {
         'We offer flexible pouch packaging solutions in a variety of formats designed for functionality and strong shelf impact. Formats include stand-up, center seal, shaped, and customized.',
       applications:
         'Stand-Up Pouches, Centre Seal Pouches, Three Side Seal Pouches, Gusset Pouches, Spout Pouches, Shaped Pouches, Customized Pouches.',
-      image:
-        'https://lh3.googleusercontent.com/aida-public/AB6AXuA1x6XFRG13yhy-etc_-4XL1sSgehBHhOPkz0Q_iLPX9ExtcoBhJ5aBeLzGdNXtSjZS_SkKrmIrVg0A6sqZpPH3cO88kRqhDcB7o3I3Df1AMawFnubywjZ6mH8m_dc1F7bhx851o6POl98_D2PD5XjHWnpGYaC9JtOtDIJBjIuRIRI_u01lJTygs7d0pDZNwZ4tmbnfUKukrl4VAF2cTvvNx8CRZ0B77jUwNRCtIqLIBgeFxarUv8amY-OcsHRUsgDDeg',
+      image: 'images/optimized/packaging-pouches.webp',
     },
     {
       title: 'Paper Bags',
       description:
         'Paper bags provide a practical packaging solution for retail, food service, and promotional purposes. We offer a range of paper bag formats that can be adapted for customized size, design, and printing.',
       applications: 'Retail Bags, Shopping Bags, Food & Takeaway Bags, Promotional Bags, Customized Paper Bags.',
-      image:
-        'https://lh3.googleusercontent.com/aida-public/AB6AXuAmHUJPx7qVZScNAhX45ggMToMPSS0dDoPkYddEn-y2iAnD6q-LE-eqld5ZWlVMQmbRJaJgc3HJ4rmwX4uxBnvPdCKOyjWO4vuMqI4-xMpTjfQzFa6uIB-PyAAyY6zMkYlARuBXp92DnCg_Ewkl_MDRiPCL0EAmbg6tmILf9thfquY1djjyFq_QhTAAyFa6nX66fZFimyjpleVQzLcLjtP7Sc6c3ulChSp33AGrgRB-5ZJl1Sgk3LKrGGmYanNGeO61jg',
+      image: 'images/optimized/packaging-paper-bags.webp',
     },
   ];
 
   protected readonly machines: Machine[] = [
     {
-      image:
-        'https://lh3.googleusercontent.com/aida-public/AB6AXuCqLcEcH2bgjB1S2Yk6D4qXK8JK1fsdkMskhkXFULmqWWg3A2xvz86JrlOIV8sycHRoct-eE65pvQ4suRN78TgkFosg2x_b7Y5F-WjAbRlXjf9mh1npfYy9F9TNtsoE-upRaF-W1QsneAi7hSjysjUqaxwLTOIJeh3ssGGyqu1_MH2HEEmWRBztrw6oiwz15pmFk2Zz49_-VK2VwWYy1sA6skEM7sGdqKB6L67_ZzNvzuEmPZiA9egrQZ0Bdl7hN4kWNg',
+      image: 'images/optimized/packaging-rotogravure-machine.webp',
       title: '9-Colour Fully Computerized Rotogravure Machine',
       usedFor: [
         'High-volume flexible packaging',
@@ -89,8 +83,7 @@ export class Packaging {
       ],
     },
     {
-      image:
-        'https://lh3.googleusercontent.com/aida-public/AB6AXuBMI2MOXwExuNd3grR8u3BcJt-f7-EdXl67vwqTEupCwV1uTVvAaF1ZSrCffBrPRC2G8PKBWlVQEX5K38PaKu_S1CEuZ_81_umhJd3iu9cSiBB_axAVP6EWzGqxG69fiFXHBdwfQQzTX8twX_POHJ8PjYtvw6GJhySWup98cA0hMIpmgwoGueetGgQPuMfJ58jjsrZ6zmBNrun3D1CIGEqK_Hdr3j5jMeAYKHvKjpvKNeGQ_LCQOdDcgJV3phUhn5h57A',
+      image: 'images/optimized/packaging-extrusion-machine.webp',
       title: 'Extrusion Coating & Lamination Machine',
       usedFor: [
         'Multi-layer barrier films',
@@ -104,8 +97,7 @@ export class Packaging {
       ],
     },
     {
-      image:
-        'https://lh3.googleusercontent.com/aida-public/AB6AXuBOM8Muuk7pgKKTgar3amUDxVr5BuwpOTm5n6QzCRR8xF3JsYtXpGvfBAQHahkoehWfPKshNJILbhSs8pqEw1DAJSldW89T3BPFaoZwsYJ4Ogmrx18za8XfRYoywLvEb_bFu_D-nFkgsZLPZU-CPGoMI3J9XB22pnxziZTtj0ZBQNxcpx6X60Ia49NLpDVT_LrB6EtdiTuz2HVJQE2SjoJRi9lkcjbNMMrr5Fez9XslKgm-YZGQIdLRMCESQkgzvESSmQ',
+      image: 'images/optimized/packaging-flexographic-machine.webp',
       title: '10-Colour Flexographic Printing Machine',
       usedFor: [
         'Self-adhesive and pressure-sensitive labels',

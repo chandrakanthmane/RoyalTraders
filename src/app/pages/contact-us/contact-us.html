@@ -41,17 +41,20 @@
           </div>
           <div class="flex flex-col">
             <label class="font-label-md text-label-md uppercase mb-xs text-on-surface" for="phone">Phone Number</label>
-            <input
-              class="border border-on-surface bg-surface-container-lowest p-sm focus:outline-none focus:ring-2 focus:ring-primary-container focus:border-transparent font-body-md"
-              id="phone"
-              formControlName="phone"
-              placeholder="Enter your phone number*"
-              type="tel"
-              [attr.aria-invalid]="form.controls.phone.invalid && form.controls.phone.touched"
-              aria-describedby="phone-error"
-            />
+            <div class="flex gap-xs">
+              <app-country-code-select class="shrink-0" formControlName="countryCode" [countries]="countryCodes" />
+              <input
+                class="border border-on-surface bg-surface-container-lowest p-sm focus:outline-none focus:ring-2 focus:ring-primary-container focus:border-transparent font-body-md flex-1 min-w-0"
+                id="phone"
+                formControlName="phone"
+                placeholder="Enter your phone number*"
+                type="tel"
+                [attr.aria-invalid]="form.controls.phone.invalid && form.controls.phone.touched"
+                aria-describedby="phone-error"
+              />
+            </div>
             @if (form.controls.phone.invalid && form.controls.phone.touched) {
-              <span id="phone-error" class="text-error text-caption font-caption mt-1">Please enter a valid phone number.</span>
+              <span id="phone-error" class="text-error text-caption font-caption mt-1">{{ phoneErrorMessage() }}</span>
             }
           </div>
         </div>

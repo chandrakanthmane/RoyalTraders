@@ -8,7 +8,7 @@ export interface ContactFormPayload {
 }
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const PHONE_PATTERN = /^[0-9+()\-\s]{7,15}$/;
+const PHONE_PATTERN = /^[0-9+()\-\s]{7,20}$/;
 
 export function validateContactPayload(body: unknown): { valid: true; data: ContactFormPayload } | { valid: false; error: string } {
   if (typeof body !== 'object' || body === null) {

@@ -38,35 +38,34 @@ export class Home {
   }
 
   protected readonly clients: LogoMarqueeItem[] = [
-    { src: 'images/Bank%20of%20seirra.PNG', alt: 'Bank of Sierra Leone' },
-    { src: 'images/C2.PNG', alt: 'C2' },
-    { src: 'images/CEDEAO.PNG', alt: 'CEDEAO' },
-    { src: 'images/Choitram%20school.PNG', alt: 'Choitram School' },
-    { src: 'images/choitrams.PNG', alt: 'Choitrams' },
-    { src: 'images/ecobank.PNG', alt: 'Ecobank' },
-    { src: 'images/EPI.PNG', alt: 'EPI' },
-    { src: 'images/firstcry.PNG', alt: 'FirstCry' },
-    { src: 'images/freetown%20city%20councel.PNG', alt: 'Freetown City Council' },
-    { src: 'images/Govt%20of%20India.PNG', alt: 'Government of India' },
-    { src: 'images/Jolkas.PNG', alt: 'Jolkas' },
-    { src: 'images/kissy.PNG', alt: 'Kissy' },
-    { src: 'images/minata.PNG', alt: 'Minata' },
-    { src: 'images/Ministry%20of%20tourism.PNG', alt: 'Ministry of Tourism' },
-    { src: 'images/natco.PNG', alt: 'Natco' },
-    { src: 'images/National%20Tourist%20Board.PNG', alt: 'National Tourist Board' },
-    { src: 'images/padi.PNG', alt: 'PADI' },
-    { src: 'images/PI.PNG', alt: 'PI' },
-    { src: 'images/spirit.PNG', alt: 'Spirit' },
-    { src: 'images/UBA.PNG', alt: 'UBA' },
-    { src: 'images/UFJ.PNG', alt: 'UFJ' },
-    { src: 'images/UNICEF.PNG', alt: 'UNICEF' },
-    { src: 'images/WHO.PNG', alt: 'WHO' },
+    { src: 'images/Bank%20of%20seirra.webp', alt: 'Bank of Sierra Leone' },
+    { src: 'images/C2.webp', alt: 'C2' },
+    { src: 'images/CEDEAO.webp', alt: 'CEDEAO' },
+    { src: 'images/Choitram%20school.webp', alt: 'Choitram School' },
+    { src: 'images/choitrams.webp', alt: 'Choitrams' },
+    { src: 'images/ecobank.webp', alt: 'Ecobank' },
+    { src: 'images/EPI.webp', alt: 'EPI' },
+    { src: 'images/firstcry.webp', alt: 'FirstCry' },
+    { src: 'images/freetown%20city%20councel.webp', alt: 'Freetown City Council' },
+    { src: 'images/Govt%20of%20India.webp', alt: 'Government of India' },
+    { src: 'images/Jolkas.webp', alt: 'Jolkas' },
+    { src: 'images/kissy.webp', alt: 'Kissy' },
+    { src: 'images/minata.webp', alt: 'Minata' },
+    { src: 'images/Ministry%20of%20tourism.webp', alt: 'Ministry of Tourism' },
+    { src: 'images/natco.webp', alt: 'Natco' },
+    { src: 'images/National%20Tourist%20Board.webp', alt: 'National Tourist Board' },
+    { src: 'images/padi.webp', alt: 'PADI' },
+    { src: 'images/PI.webp', alt: 'PI' },
+    { src: 'images/spirit.webp', alt: 'Spirit' },
+    { src: 'images/UBA.webp', alt: 'UBA' },
+    { src: 'images/UFJ.webp', alt: 'UFJ' },
+    { src: 'images/UNICEF.webp', alt: 'UNICEF' },
+    { src: 'images/WHO.webp', alt: 'WHO' },
   ];
 
   protected readonly services: ServiceCard[] = [
     {
-      image:
-        'https://lh3.googleusercontent.com/aida-public/AB6AXuCQ_0Kty9rnnsOYlzJTCi2pNuwGPgRcIU-g8bjR8O43tA2zxcDQHep7V4PPXb9WCz_0yx9dGcPG0v8t1wXEMk4mCaTNxQlrsnW5UNkkObfCQdXojRAHMvsAxvZNVzgP_bxR7VUobJs04wXoGPBFk1K5sdL4R50AuFRaCnp6MgUZkmWaZH79EDTA2nYtQdE6bNn_K5uMyUfS3B_bbjlOtcmNiVt4bT3CBABJkYqN-wCyaCc7Ek3m5Exf2OaHdZLzU7Tgjw',
+      image: 'images/optimized/home-service-print.webp',
       title: 'PRINT',
       description:
         'High-precision offset and digital printing for high-volume industrial requirements with micron-level accuracy.',
@@ -74,8 +73,7 @@ export class Home {
       path: '/print',
     },
     {
-      image:
-        'https://lh3.googleusercontent.com/aida-public/AB6AXuAO1n09j7xI3DULdvW-xYxJ4nb-UmD6Sb93fLnxI1mhPUz8ShdXKtTes19JWWuON96DUKUv2yfotPnwr--iDNhTJ8UdV6t-bSprnWU3fGJme6V-DMa_5DTTXYoenw-C6wqe6bwNx0QmXbXNxb85qN1N0rRGtdiqhPMKZS5yS1_yN4NIiJIDvHYLPm-yObFRRvgU-rJSmt9ekoIZxBjmWY8nbKDO4vUHfbbwY85FZdGNokJReSE1OiFdTolrUwzGHhxveg',
+      image: 'images/optimized/home-service-packaging.webp',
       title: 'PACKAGING',
       description:
         'Custom engineered industrial packaging solutions that balance brand aesthetic with structural durability.',
@@ -83,8 +81,7 @@ export class Home {
       path: '/packaging',
     },
     {
-      image:
-        'https://lh3.googleusercontent.com/aida-public/AB6AXuA2pBFvNL2EO1RIRe3vy5ig0CRTOcQty9uDBQnBVQkauDXrVDjtJACTkaZzWazD4q4cECZg0AKlVV06T0kxNOqkYF13ZCtZEIMSHJOqWVcVHH-vqYl49mx1NeASTsyywbBg2XyR6vEus7fQvw05oZrFLR-opFbpGPxbNi-WKjkWnmilw0MfNjnpcA3YJrUcE8WNwRvhgpBonfCz2-l4gD09E9OnGXvwhkqPlfLN9Q0NZDIHlDKpHs2H7YVIKIBnow9KZA',
+      image: 'images/optimized/home-service-security.webp',
       title: 'SECURITY SOLUTIONS',
       description:
         'Anti-counterfeit measures and secure tracking systems for certificates, currency-grade documents, and pharma labels.',
